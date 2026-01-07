@@ -1,0 +1,4 @@
+# Ignore all .env files and local variations
+.env
+.env.local
+.env.*.local
