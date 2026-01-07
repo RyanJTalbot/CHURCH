@@ -11,8 +11,12 @@ const userSchema = new mongoose.Schema(
 		},
 		name: { type: String, required: true, trim: true },
 		passwordHash: { type: String, required: true },
+
+		isVerified: { type: Boolean, default: false },
+		emailVerifyTokenHash: { type: String, default: null },
+		emailVerifyTokenExpiresAt: { type: Date, default: null },
 	},
 	{ timestamps: true },
 );
 
-export default mongoose.model('User', userSchema); // collection: users
+export default mongoose.model('User', userSchema);

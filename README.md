@@ -13,10 +13,14 @@ Open: http://localhost:5173
 To-Do:
 
 - Registration
+  - email verification
+  - Sign up to this site with a public profile. 'Read more'
+  - By signing up, you agree to ourTerms of Use
 - Profile
 - CSS
 - Website Text
 - Donation Page
+  - connect to payment system
 - Add Chatbot / chatGOD
 - Disclaimer page
 - Connect to mongoDB

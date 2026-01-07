@@ -9,6 +9,7 @@ import Contact from './pages/Contact.jsx';
 import Donate from './pages/Donate.jsx';
 import Login from './pages/Login.jsx';
 import Profile from './pages/Profile.jsx';
+import VerifyEmail from './pages/VerifyEmail.jsx';
 
 import ProtectedRoute from './ProtectedRoute.jsx';
 import { AuthProvider } from './AuthContext.jsx';
@@ -44,6 +45,7 @@ export default function App() {
 							}
 						/>
 						<Route path='*' element={<div>404 — Page not found</div>} />
+						<Route path='/verify-email' element={<VerifyEmail />} />
 					</Routes>
 				</main>
 				<Footer />
