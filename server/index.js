@@ -3,10 +3,13 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { readUsers, writeUsers } from './authStore.js';
 import { requireAuth } from './authMiddleware.js';
+import { connectDB } from './db.js';
+import Contact from './models/Contact.js';
 
 dotenv.config();
 
@@ -103,6 +106,8 @@ app.post('/api/auth/login', async (req, res) => {
 		{ expiresIn: '7d' },
 	);
 
+	// await connectDB();
+
 	return res.json({
 		ok: true,
 		token,
@@ -129,13 +134,14 @@ app.get('/api/auth/me', requireAuth, async (req, res) => {
 });
 
 // ---------- Existing endpoints ----------
-app.post('/api/contact', (req, res) => {
+app.post('/api/contact', async (req, res) => {
 	const { name, email, message } = req.body || {};
 	if (!name || !email || !message) {
 		return res.status(400).json({ ok: false, error: 'Missing fields' });
 	}
-	console.log('Contact submission:', { name, email, message });
-	return res.json({ ok: true, message: 'Thanks! We received your message.' });
+
+	const saved = await Contact.create({ name, email, message });
+	return res.json({ ok: true, message: 'Saved!', id: saved._id });
 });
 
 app.post('/api/donate', (req, res) => {

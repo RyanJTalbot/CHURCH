@@ -1,7 +1,6 @@
 Backend
 cd server
 npm i
-cp .env.example .env
 npm run dev
 
 Frontend
@@ -10,3 +9,14 @@ npm i
 npm run dev
 
 Open: http://localhost:5173
+
+To-Do:
+
+- Registration
+- Profile
+- CSS
+- Website Text
+- Donation Page
+- Add Chatbot / chatGOD
+- Disclaimer page
+- Connect to mongoDB
