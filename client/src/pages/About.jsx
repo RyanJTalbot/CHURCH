@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function About() {
-	return (
-		<div className='container'>
-			<h1 className='pageTitle'>About</h1>
-			<p className='pageSubtitle'>
-				Add your church/organization mission, service times, and community info
-				here.
-			</p>
+	useEffect(() => {
+		document.body.classList.add('homeBody');
+		return () => document.body.classList.remove('homeBody');
+	}, []);
 
-			<div className='card'>
-				<p style={{ marginTop: 0, color: 'var(--muted)', lineHeight: 1.6 }}>
-					This site is a starter template. You can expand it with events,
-					announcements, volunteer signups, sermons, and real donation
-					processing.
-				</p>
-			</div>
+	return (
+		<div className='aboutPage'>
+			<section className='aboutHero'>
+				<div className='aboutPanel'>
+					<h1 className='pageTitle'>About Us</h1>
+
+					<p>
+						Our community is built on faith, service, and connection. We strive
+						to create a welcoming space for everyone.
+					</p>
+
+					<p>
+						Through worship, outreach, and fellowship, we work together to make
+						a positive impact in our community and beyond.
+					</p>
+
+					<p>
+						Whether you are new to faith or have been on this journey for years,
+						you are welcome here.
+					</p>
+				</div>
+			</section>
 		</div>
 	);
 }

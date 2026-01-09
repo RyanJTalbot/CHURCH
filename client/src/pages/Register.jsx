@@ -3,10 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { apiPost } from '../api.js';
 import { useAuth } from '../auth/AuthContext.jsx';
 
-export default function Login() {
+export default function Register() {
 	const nav = useNavigate();
 	const { loginWithToken } = useAuth();
 
+	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -18,8 +19,13 @@ export default function Login() {
 		setError('');
 		setBusy(true);
 		try {
+			// register
+			await apiPost('/api/auth/register', { name, email, password });
+
+			// then login immediately (your backend supports /login)
 			const data = await apiPost('/api/auth/login', { email, password });
 			loginWithToken(data.token, data.user);
+
 			nav('/profile');
 		} catch (err) {
 			setError(err.message || 'Request failed');
@@ -30,11 +36,21 @@ export default function Login() {
 
 	return (
 		<div className='container' style={{ paddingTop: 40, paddingBottom: 40 }}>
-			<h1 className='pageTitle'>Sign In</h1>
-			<p className='pageSubtitle'>Sign in to access your profile page.</p>
+			<h1 className='pageTitle'>Create Account</h1>
+			<p className='pageSubtitle'>Create an account to access your profile.</p>
 
 			<div className='card' style={{ maxWidth: 720, margin: '0 auto' }}>
 				<form onSubmit={onSubmit} className='stack'>
+					<label>
+						<div className='label'>Name</div>
+						<input
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+							placeholder='Your name'
+							autoComplete='name'
+						/>
+					</label>
+
 					<label>
 						<div className='label'>Email</div>
 						<input
@@ -46,27 +62,27 @@ export default function Login() {
 					</label>
 
 					<label>
-						<div className='label'>Password</div>
+						<div className='label'>Password (min 8 chars)</div>
 						<input
 							type='password'
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 							placeholder='••••••••'
-							autoComplete='current-password'
+							autoComplete='new-password'
 						/>
 					</label>
 
 					<button className='btn btnPrimary' disabled={busy}>
-						{busy ? 'Signing in...' : 'Sign in'}
+						{busy ? 'Creating...' : 'Create account'}
 					</button>
 
 					{error ? <div className='notice noticeError'>{error}</div> : null}
 				</form>
 
 				<div style={{ marginTop: 14, textAlign: 'center' }}>
-					Not a member yet?{' '}
-					<Link className='btn' to='/register'>
-						Create account
+					Already have an account?{' '}
+					<Link className='link' to='/login'>
+						Sign in
 					</Link>
 				</div>
 			</div>

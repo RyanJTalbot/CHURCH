@@ -255,3 +255,86 @@ a:hover { opacity: 0.9; }
 @media (max-width: 560px) {
   .pageTitle { font-size: 30px; }
 }
+
+/* ===== Home page full-bleed hero ===== */
+.homePage {
+  /* override global body background gradient for this page area */
+  background: #000; /* fallback while image loads */
+}
+
+.homeHero {
+  width: 100%;
+  min-height: 100vh;
+
+  /* Use the image as a true page background */
+  background-image: url("/src/assets/nature-2608000_1280.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* no extra coloring */
+  position: relative;
+
+  /* keep content readable */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 80px 60px;
+}
+
+@media (max-width: 900px) {
+  .homeHero {
+    justify-content: center;
+    padding: 60px 18px;
+  }
+}
+
+/* Optional: small glass panel only behind the text (not the whole image) */
+.homePanel {
+  max-width: 520px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+
+body.homeBody {
+  background: #000 !important;
+}
+
+
+/* ===== ABOUT PAGE FULL BACKGROUND ===== */
+.aboutPage {
+  min-height: 100vh;
+}
+
+.aboutHero {
+  width: 100%;
+  min-height: 100vh;
+
+  background-image: url("/src/assets/Clouds_shattering_the_sun_rays.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 80px 20px;
+  position: relative;
+}
+
+/* Glass panel for readable content */
+.aboutPanel {
+  max-width: 760px;
+  padding: 32px;
+  border-radius: 18px;
+
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+
+  color: #fff;
+}

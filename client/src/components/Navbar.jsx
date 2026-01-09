@@ -14,8 +14,8 @@ export default function Navbar() {
 			<div className='container navInner'>
 				<div className='brand' onClick={() => nav('/')}>
 					<span className='logoDot' />
-					<span className='brandName'>My Basic Site</span>
-					<span className='badge'>MERN starter</span>
+					<span className='brandName'>Church of the Future</span>
+					{/* <span className='badge'>MERN starter</span> */}
 				</div>
 
 				<div className='navLinks'>
