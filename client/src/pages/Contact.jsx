@@ -2,86 +2,93 @@ import React, { useState } from 'react';
 import { apiPost } from '../api.js';
 
 export default function Contact() {
-	const [form, setForm] = useState({ name: '', email: '', message: '' });
-	const [status, setStatus] = useState({ type: 'idle', text: '' });
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [message, setMessage] = useState('');
 
-	function update(key, value) {
-		setForm((f) => ({ ...f, [key]: value }));
-	}
+	const [busy, setBusy] = useState(false);
+	const [notice, setNotice] = useState(null);
 
 	async function onSubmit(e) {
 		e.preventDefault();
-		setStatus({ type: 'loading', text: 'Sending...' });
+		setNotice(null);
+		setBusy(true);
 
 		try {
-			const data = await apiPost('/api/contact', form);
-			setStatus({ type: 'success', text: data.message || 'Sent!' });
-			setForm({ name: '', email: '', message: '' });
+			const res = await apiPost('/api/contact', {
+				name,
+				email,
+				message,
+			});
+
+			if (res.ok) {
+				setNotice({ type: 'success', text: res.message });
+				setName('');
+				setEmail('');
+				setMessage('');
+			}
 		} catch (err) {
-			setStatus({ type: 'error', text: err.message || 'Failed to send.' });
+			setNotice({
+				type: 'error',
+				text: err.message || 'Failed to send message',
+			});
+		} finally {
+			setBusy(false);
 		}
 	}
 
-	const noticeClass =
-		status.type === 'success'
-			? 'notice noticeSuccess'
-			: status.type === 'error'
-			? 'notice noticeError'
-			: 'notice';
-
 	return (
-		<div className='container'>
-			<h1 className='pageTitle'>Contact</h1>
+		<div className='container' style={{ paddingTop: 40 }}>
+			<h1 className='pageTitle'>Contact Us</h1>
 			<p className='pageSubtitle'>
-				Send a message — this posts to your Node backend.
+				Send us a message and we’ll get back to you.
 			</p>
 
-			<div className='card'>
-				<form onSubmit={onSubmit} className='form'>
-					<div className='field'>
-						<label>Name</label>
+			<div className='card' style={{ maxWidth: 720 }}>
+				<form onSubmit={onSubmit} className='stack'>
+					<label>
+						<div className='label'>Name</div>
 						<input
-							className='input'
-							value={form.name}
-							onChange={(e) => update('name', e.target.value)}
+							value={name}
+							onChange={(e) => setName(e.target.value)}
 							required
 						/>
-					</div>
+					</label>
 
-					<div className='field'>
-						<label>Email</label>
+					<label>
+						<div className='label'>Email</div>
 						<input
-							className='input'
 							type='email'
-							value={form.email}
-							onChange={(e) => update('email', e.target.value)}
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 							required
 						/>
-					</div>
+					</label>
 
-					<div className='field'>
-						<label>Message</label>
+					<label>
+						<div className='label'>Message</div>
 						<textarea
-							className='textarea'
-							value={form.message}
-							onChange={(e) => update('message', e.target.value)}
+							rows={5}
+							value={message}
+							onChange={(e) => setMessage(e.target.value)}
 							required
 						/>
-					</div>
+					</label>
 
-					<div className='row'>
-						<button
-							className='btn btnPrimary'
-							type='submit'
-							disabled={status.type === 'loading'}
+					<button className='btn btnPrimary' disabled={busy}>
+						{busy ? 'Sending...' : 'Send message'}
+					</button>
+
+					{notice && (
+						<div
+							className={
+								notice.type === 'success'
+									? 'notice noticeSuccess'
+									: 'notice noticeError'
+							}
 						>
-							{status.type === 'loading' ? 'Sending...' : 'Send message'}
-						</button>
-						<span className='badge'>We usually reply soon</span>
-					</div>
-
-					{status.type !== 'idle' && (
-						<div className={noticeClass}>{status.text}</div>
+							{notice.text}
+						</div>
 					)}
 				</form>
 			</div>

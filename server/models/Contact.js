@@ -9,4 +9,5 @@ const contactSchema = new mongoose.Schema(
 	{ timestamps: true },
 );
 
-export default mongoose.model('Contact', contactSchema); // collection: contacts
+export default mongoose.model('Contact', contactSchema);
+// collection name: contacts

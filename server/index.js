@@ -8,6 +8,7 @@ import jwt from 'jsonwebtoken';
 
 import { connectDB } from './db.js';
 import User from './models/User.js';
+import Contact from './models/Contact.js';
 
 dotenv.config();
 
@@ -113,6 +114,38 @@ app.post('/api/auth/login', async (req, res) => {
 	} catch (err) {
 		console.error('Login error:', err);
 		return res.status(500).json({ ok: false, error: 'Server error' });
+	}
+});
+
+app.post('/api/contact', async (req, res) => {
+	try {
+		const { name, email, message } = req.body || {};
+
+		if (!name || !email || !message) {
+			return res.status(400).json({
+				ok: false,
+				error: 'All fields are required',
+			});
+		}
+
+		const saved = await Contact.create({
+			name: String(name).trim(),
+			email: String(email).trim().toLowerCase(),
+			message: String(message).trim(),
+		});
+
+		console.log('📩 Contact message saved:', saved._id.toString());
+
+		return res.json({
+			ok: true,
+			message: 'Thanks! Your message has been sent.',
+		});
+	} catch (err) {
+		console.error('❌ Contact save failed:', err);
+		return res.status(500).json({
+			ok: false,
+			error: 'Server error while sending message',
+		});
 	}
 });
 
