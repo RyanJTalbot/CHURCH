@@ -26,3 +26,5 @@ To-Do:
 - Connect to mongoDB
 
 to print folder tree in bash: tree /f /a > tree.txt
+
+to check backend health use http://127.0.0.1:5000/api/health
