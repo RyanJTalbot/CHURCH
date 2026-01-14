@@ -24,6 +24,8 @@ To-Do:
 - Add Chatbot / chatGOD
 - Disclaimer page
 - Connect to mongoDB
+- Password reset
+- videos page
 
 to print folder tree in bash: tree /f /a > tree.txt
 
