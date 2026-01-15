@@ -11,6 +11,7 @@ import Login from './pages/Login.jsx';
 import Profile from './pages/Profile.jsx';
 import VerifyEmail from './pages/VerifyEmail.jsx';
 import Register from './pages/Register.jsx';
+import Videos from './pages/Videos.jsx';
 
 import ProtectedRoute from './ProtectedRoute.jsx';
 import { AuthProvider } from './AuthContext.jsx';
@@ -36,8 +37,10 @@ export default function App() {
 						<Route path='/about' element={<About />} />
 						<Route path='/contact' element={<Contact />} />
 						<Route path='/donate' element={<Donate />} />
+						<Route path='/videos' element={<Videos />} />
 						<Route path='/register' element={<Register />} />
 						<Route path='/login' element={<Login />} />
+
 						<Route
 							path='/profile'
 							element={

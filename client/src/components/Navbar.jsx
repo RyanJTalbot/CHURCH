@@ -25,6 +25,9 @@ export default function Navbar() {
 					<NavLink to='/about' className={navClass}>
 						About
 					</NavLink>
+					<NavLink to='/videos' className={navClass}>
+						Videos
+					</NavLink>
 					<NavLink to='/contact' className={navClass}>
 						Contact
 					</NavLink>
