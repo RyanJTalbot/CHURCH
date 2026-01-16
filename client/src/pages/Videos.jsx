@@ -13,6 +13,154 @@ const VIDEOS = [
 		title: 'Message Clip (Example)',
 		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
 	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
+	{
+		title: 'Sunday Service (Example)',
+		url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+	},
+	{
+		title: 'Worship Set (Example)',
+		url: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
+	},
+	{
+		title: 'Message Clip (Example)',
+		url: 'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
+	},
 ];
 
 // Convert YouTube watch/share urls to an embed URL
