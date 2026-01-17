@@ -12,6 +12,9 @@ import Profile from './pages/Profile.jsx';
 import VerifyEmail from './pages/VerifyEmail.jsx';
 import Register from './pages/Register.jsx';
 import Videos from './pages/Videos.jsx';
+import Terms from './pages/Terms.jsx';
+import Privacy from './pages/Privacy.jsx';
+import Inspiration from './pages/Inspiration.jsx';
 
 import ProtectedRoute from './ProtectedRoute.jsx';
 import { AuthProvider } from './AuthContext.jsx';
@@ -38,6 +41,11 @@ export default function App() {
 						<Route path='/contact' element={<Contact />} />
 						<Route path='/donate' element={<Donate />} />
 						<Route path='/videos' element={<Videos />} />
+
+						<Route path='/inspiration' element={<Inspiration />} />
+						<Route path='/terms' element={<Terms />} />
+						<Route path='/privacy' element={<Privacy />} />
+
 						<Route path='/register' element={<Register />} />
 						<Route path='/login' element={<Login />} />
 

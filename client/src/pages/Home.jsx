@@ -12,7 +12,7 @@ export default function Home() {
 			<section className='homeHero'>
 				<div className='homePanel'>
 					<h1 className='pageTitle' style={{ marginTop: 0 }}>
-						Welcome
+						Live inspired. Reach your dreams. Become all God created you to be.
 					</h1>
 
 					<p

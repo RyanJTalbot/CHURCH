@@ -29,7 +29,7 @@ body {
   font-family: var(--font);
   color: var(--text);
   background:
-    radial-gradient(1100px 600px at 15% -10%, rgba(124, 92, 255, 0.55), transparent 60%),
+    radial-gradient(1100px 600px at 15% -10%, rgba(104, 100, 121, 0.55), transparent 60%),
     radial-gradient(900px 500px at 85% 0%, rgba(25, 195, 125, 0.30), transparent 55%),
     linear-gradient(180deg, #080b16 0%, #0b1020 55%, #060815 100%);
 }
@@ -61,7 +61,7 @@ a:hover { opacity: 0.9; }
 
 /* Cards */
 .card {
-  background: linear-gradient(180deg, var(--panel) 0%, rgba(255,255,255,0.03) 100%);
+  background: linear-gradient(180deg, var(--panel) 0%, rgba(199, 176, 176, 0.03) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -76,69 +76,163 @@ a:hover { opacity: 0.9; }
   margin-bottom: 14px;
 }
 
-/* Navbar */
-.navShell {
+/* ===== NAVBAR (Joel-style two-tier) ===== */
+.navWrap {
   position: sticky;
   top: 0;
-  z-index: 20;
-  backdrop-filter: blur(10px);
-  background: rgba(8, 11, 22, 0.65);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 50;
+}
+
+.navTop {
+  background: #0a7fb8; /* bright blue */
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.navBottom {
+  background: #075f8a; /* darker blue */
 }
 
 .navInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 18px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
   user-select: none;
 }
 
-.logoDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--accent));
-  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.15);
+.brand {
+  text-decoration: none;
+  cursor: pointer;
 }
 
+.brand:hover {
+  opacity: 0.95;
+}
+
+.brandMark {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.brandText { line-height: 1.05; }
 .brandName {
   font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+}
+.brandSub {
+  font-size: 11px;
+  opacity: 0.9;
+  letter-spacing: 1px;
+  margin-top: 2px;
 }
 
-.navLinks {
+.navTopLinks {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 22px;
   flex-wrap: wrap;
 }
 
-.navLink {
+.navTopLink {
+  color: rgba(255,255,255,0.95);
   text-decoration: none;
-  padding: 8px 12px;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  padding: 14px 6px;
+  position: relative;
+}
+
+.navTopLink:hover {
+  color: #fff;
+}
+
+.navTopLink.active::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 6px;
+  height: 3px;
+  background: #ffd100; /* yellow underline */
   border-radius: 999px;
-  border: 1px solid transparent;
-  color: var(--muted);
 }
 
-.navLink:hover {
-  border-color: rgba(255,255,255,0.12);
-  color: var(--text);
+.donateLink {
+  color: #ffd100 !important; /* yellow text like screenshot */
 }
 
-.navLinkActive {
-  background: rgba(124, 92, 255, 0.18);
-  border-color: rgba(124, 92, 255, 0.35);
-  color: var(--text);
+.navBottomInner {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+
+.navSpacer { flex: 1; }
+
+.navIcons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navIconBtn {
+  position: relative;
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.08);
+}
+
+.navIconBtn:hover {
+  background: rgba(0,0,0,0.16);
+  color: #fff;
+}
+
+.navBadge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #e53935;
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  padding: 0 4px;
+}
+
+/* Mobile: stack links a bit tighter */
+@media (max-width: 820px) {
+  .navTopLinks { gap: 12px; }
+  .brandName { display: none; } /* optional */
+}
+
 
 /* Buttons */
 .btn {

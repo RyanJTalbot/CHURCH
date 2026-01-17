@@ -1,56 +1,82 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useAuth } from '../AuthContext.jsx';
+import { NavLink } from 'react-router-dom';
+
+function TopLink({ to, children, className = '' }) {
+	return (
+		<NavLink
+			to={to}
+			className={({ isActive }) =>
+				`navTopLink ${isActive ? 'active' : ''} ${className}`.trim()
+			}
+			end
+		>
+			{children}
+		</NavLink>
+	);
+}
 
 export default function Navbar() {
-	const { user, loading, logout } = useAuth();
-	const nav = useNavigate();
-
-	const navClass = ({ isActive }) =>
-		`navLink ${isActive ? 'navLinkActive' : ''}`;
-
 	return (
-		<header className='navShell'>
-			<div className='container navInner'>
-				<div className='brand' onClick={() => nav('/')}>
-					<span className='logoDot' />
-					<span className='brandName'>Church of the Future</span>
-					{/* <span className='badge'>MERN starter</span> */}
-				</div>
-
-				<div className='navLinks'>
-					<NavLink to='/' className={navClass} end>
-						Home
-					</NavLink>
-					<NavLink to='/about' className={navClass}>
-						About
-					</NavLink>
-					<NavLink to='/videos' className={navClass}>
-						Videos
-					</NavLink>
-					<NavLink to='/contact' className={navClass}>
-						Contact
-					</NavLink>
-					<NavLink to='/donate' className={navClass}>
-						Donate
-					</NavLink>
-
-					{!loading && !user && (
-						<NavLink to='/login' className={navClass}>
-							Login
+		<header className='navWrap'>
+			{/* Top bar */}
+			<div className='navTop'>
+				<div className='navInner'>
+					<div className='brand'>
+						<NavLink to='/' className='brand' aria-label='Go to home'>
+							<div className='brandMark'>RT</div>
+							<div className='brandText'>
+								<div className='brandName'>CHURCH OF THE FUTURE</div>
+								<div className='brandSub'>MINISTRIES</div>
+							</div>
 						</NavLink>
-					)}
+					</div>
 
-					{!loading && user && (
-						<>
-							<NavLink to='/profile' className={navClass}>
-								Profile
-							</NavLink>
-							<button className='btn btnGhost' onClick={logout}>
-								Logout
-							</button>
-						</>
-					)}
+					<nav className='navTopLinks' aria-label='Primary'>
+						<TopLink to='/about'>About</TopLink>
+						<TopLink to='/videos'>Watch</TopLink>
+						<TopLink to='/inspiration'>Inspiration</TopLink>
+						<TopLink to='/contact'>Community</TopLink>
+						<TopLink to='/donate' className='donateLink'>
+							Donate
+						</TopLink>
+					</nav>
+				</div>
+			</div>
+
+			{/* Bottom bar */}
+			<div className='navBottom'>
+				<div className='navInner navBottomInner'>
+					<div className='navSpacer' />
+
+					<div className='navIcons' aria-label='Utility'>
+						<NavLink
+							to='/search'
+							className='navIconBtn'
+							title='Search'
+							aria-label='Search'
+						>
+							🔍
+						</NavLink>
+
+						<NavLink
+							to='/cart'
+							className='navIconBtn'
+							title='Cart'
+							aria-label='Cart'
+						>
+							🛒
+							<span className='navBadge'>0</span>
+						</NavLink>
+
+						<NavLink
+							to='/login'
+							className='navIconBtn'
+							title='Account'
+							aria-label='Account'
+						>
+							👤
+						</NavLink>
+					</div>
 				</div>
 			</div>
 		</header>
