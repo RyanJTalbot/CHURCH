@@ -466,3 +466,266 @@ body.homeBody {
   height: 100%;
   border: 0;
 }
+
+/* ===== Inspiration page (Joel-style layout) ===== */
+.inspoPage {
+  background: #ffffff;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* tabs strip under navbar */
+.inspoTabs {
+  border-bottom: 1px solid #e6e6e6;
+  background: #fff;
+}
+.inspoTabsInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 14px 10px;
+}
+.inspoTab {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  font-size: 12px;
+  color: #444;
+  padding: 10px 8px;
+  text-transform: uppercase;
+  position: relative;
+}
+.inspoTab.active::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: -8px;
+  height: 3px;
+  background: #0a7fb8; /* blue underline */
+  border-radius: 999px;
+}
+
+.inspoMain {
+  padding-top: 28px;
+  padding-bottom: 60px;
+}
+
+.inspoSignupHeader {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.inspoSignupHeader h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+}
+.inspoSignupHeader p {
+  margin: 6px 0 0;
+  color: #555;
+  font-size: 13px;
+}
+
+.inspoSignupRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 140px;
+  gap: 12px;
+  align-items: end;
+  margin: 16px auto 10px;
+  max-width: 960px;
+}
+.inspoField label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 6px;
+}
+.inspoField input {
+  width: 100%;
+  border: 1px solid #e4e6ea;
+  border-radius: 4px;
+  padding: 10px 10px;
+  font-size: 13px;
+  outline: none;
+}
+.inspoField input:focus {
+  border-color: #0a7fb8;
+}
+
+.inspoSubmit {
+  border: 0;
+  background: #0a7fb8;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 12px 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.inspoSubmit:hover {
+  filter: brightness(0.95);
+}
+
+.inspoNotice {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #0a7fb8;
+  font-weight: 700;
+}
+
+/* "Today's word" top row */
+.inspoSectionTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+.inspoBreadcrumb {
+  color: #0a7fb8;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+}
+.inspoChevron {
+  font-size: 18px;
+  margin-right: 8px;
+  position: relative;
+  top: 1px;
+}
+.inspoCrumb {
+  text-transform: uppercase;
+}
+.inspoShare {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #666;
+  font-size: 13px;
+}
+.inspoShare a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 800;
+}
+.inspoShare a:hover {
+  color: #0a7fb8;
+}
+
+/* title block */
+.inspoTitleBlock {
+  margin-top: 2px;
+  margin-bottom: 14px;
+}
+.inspoTitleBlock h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+.inspoDate {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* hero image */
+.inspoHero {
+  width: 100%;
+  border-radius: 0;
+  overflow: hidden;
+  margin: 18px 0 18px;
+  min-height: 420px;
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.45)),
+    url("/src/assets/Clouds_shattering_the_sun_rays.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.inspoHeroOverlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+  color: #fff;
+}
+.inspoHeroDate {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+.inspoHeroTitle {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  margin-bottom: 8px;
+}
+.inspoHeroVerse {
+  max-width: 720px;
+  font-size: 12px;
+  opacity: 0.92;
+  line-height: 1.5;
+}
+.inspoHeroVerse span {
+  font-weight: 800;
+}
+
+/* body */
+.inspoBody {
+  max-width: 980px;
+  margin: 0 auto;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.inspoShareRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0 18px;
+  color: #666;
+  font-size: 13px;
+}
+.inspoShareRow a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 800;
+}
+.inspoShareRow a:hover {
+  color: #0a7fb8;
+}
+.inspoBody h3 {
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 900;
+}
+.inspoPrayer {
+  color: #444;
+  font-style: italic;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .inspoSignupRow {
+    grid-template-columns: 1fr;
+  }
+  .inspoSubmit {
+    width: 100%;
+  }
+  .inspoHero {
+    min-height: 320px;
+  }
+}
