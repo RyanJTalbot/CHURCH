@@ -190,7 +190,10 @@ function toEmbedUrl(url) {
 
 export default function Videos() {
 	return (
-		<div className='container' style={{ paddingTop: 40, paddingBottom: 40 }}>
+		<div
+			className='containerWide'
+			style={{ paddingTop: 40, paddingBottom: 40 }}
+		>
 			<h1 className='pageTitle'>Videos</h1>
 			<p className='pageSubtitle'>
 				Watch recent services, worship, and messages.
