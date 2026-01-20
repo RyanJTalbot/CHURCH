@@ -110,6 +110,30 @@ a:hover { opacity: 0.9; }
   gap: 16px;
 }
 
+.navbar {
+  height: 72px;
+  padding: 0 64px;
+  background: #0b77b5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 48px;
+}
+
+.navbar-menu a {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+}
+
+
 .brand {
   display: flex;
   align-items: center;
