@@ -1,32 +1,58 @@
 import React, { useEffect } from 'react';
+import heroImg from '../assets/Clouds_shattering_the_sun_rays.jpg';
 
 export default function About() {
 	useEffect(() => {
-		document.body.classList.add('homeBody');
-		return () => document.body.classList.remove('homeBody');
+		// make About page use a light background like the reference
+		document.body.classList.add('lightBody');
+		return () => document.body.classList.remove('lightBody');
 	}, []);
 
 	return (
-		<div className='aboutPage'>
-			<section className='aboutHero'>
-				<div className='aboutPanel'>
-					<h1 className='pageTitle'>About Us</h1>
+		<div className='aboutModern'>
+			{/* HERO */}
+			<section
+				className='aboutHeroModern'
+				style={{ backgroundImage: `url(${heroImg})` }}
+				aria-label='About hero'
+			/>
 
-					<p>
-						Our community is built on faith, service, and connection. We strive
-						to create a welcoming space for everyone.
-					</p>
+			{/* OVERLAP CONTENT PANEL */}
+			<section className='aboutPanelWrap'>
+				<div className='aboutPanelModern'>
+					<div className='aboutPanelInner'>
+						<h2>A Global Landmark</h2>
+						<p>
+							In 2003, our community began a new season of growth and outreach.
+							Over the years, we’ve continued to expand our mission—welcoming
+							new members, serving families, and creating spaces for worship,
+							discipleship, and community support.
+						</p>
 
-					<p>
-						Through worship, outreach, and fellowship, we work together to make
-						a positive impact in our community and beyond.
-					</p>
+						<h3>Reaching a New Generation with a Message of Hope</h3>
+						<p>
+							From our earliest days, we’ve focused on reaching people where
+							they are—locally and globally. Through messages of hope, practical
+							teaching, and community engagement, we aim to help individuals and
+							families take their next step forward.
+						</p>
+						<p>
+							We believe church should feel like home: a place where you can
+							grow in faith, build strong relationships, and find encouragement
+							for everyday life.
+						</p>
 
-					<p>
-						Whether you are new to faith or have been on this journey for years,
-						you are welcome here.
-					</p>
+						<p>
+							Today, we continue that mission through worship gatherings, online
+							messages, serving opportunities, and ministries for every age.
+						</p>
+					</div>
 				</div>
+			</section>
+
+			{/* OPTIONAL: second full-width image section like the screenshot */}
+			<section className='aboutWideImage' aria-label='About secondary image'>
+				<div className='aboutWideImageOverlay' />
 			</section>
 		</div>
 	);
